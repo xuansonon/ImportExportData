@@ -18,5 +18,5 @@ If you would like to demo the program, you can do so either by:<br/>
 A. Downloading the source and opening via localhost OR,<br/>
 B. Demoing on my site - http://www.xuansonon.com/projects/import-export-data/demo.html<br/><br/>
 
-***References***
+***References***<br/>
 JavaScript Base64 Encoding/Decoding - https://developer.mozilla.org/en/docs/Web/API/WindowBase64/Base64_encoding_and_decoding
