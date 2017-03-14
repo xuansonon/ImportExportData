@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JS: Load and Save</title>
+    <link href="style.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Cousine|Fira+Sans+Condensed|Gudea" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <h1>JavaScript: Import and Export Data with Base64 Encoding/Decoding</h1>
+    </header>
+    <div class="content">
+      <div class="side left">
+        <div class="wrapper">
+          <h2>Source Code</h2>
+          <p>Below is the source code that I developed:</p>
+          <pre>
+var data1 = "0";
+var data2 = "0";
+var data3 = "0";
+var data4 = "0";
+var data5 = "0";
+
+function init() {
+  document.getElementById("foundInput1").innerHTML = data1;
+  document.getElementById("foundInput2").innerHTML = data2;
+  document.getElementById("foundInput3").innerHTML = data3;
+  document.getElementById("foundInput4").innerHTML = data4;
+  document.getElementById("foundInput5").innerHTML = data5;
+}
+
+function exportCode() {
+  data1 = document.getElementById("input1").value;
+  data2 = document.getElementById("input2").value;
+  data3 = document.getElementById("input3").value;
+  data4 = document.getElementById("input4").value;
+  data5 = document.getElementById("input5").value;
+  var data = [data1, data2, data3, data4, data5];
+  var exportResult = "";
+  for(var i = 0; i < 5; i++) {
+    exportResult += data[i];
+    if(i != 4) {
+      exportResult += "||";
+    }
+  }
+  document.getElementById("exportcodearea").value = (btoa(exportResult));
+}
+
+
+function importCode() {
+  var importCode = document.getElementById("importcodearea").value;
+  importCode = atob(importCode);
+  var data = importCode.split("||");
+  data1 = data[0];
+  data2 = data[1];
+  data3 = data[2];
+  data4 = data[3];
+  data5 = data[4];
+  init();
+}
+
+function reset() {
+  data1 = "0";
+  data2 = "0";
+  data3 = "0";
+  data4 = "0";
+  data5 = "0";
+  document.getElementById("input1").value = data1;
+  document.getElementById("input2").value = data2;
+  document.getElementById("input3").value = data3;
+  document.getElementById("input4").value = data4;
+  document.getElementById("input5").value = data5;
+}
+
+init();
+          </pre>
+        </div>
+      </div>
+      <div class="side right">
+        <div class="wrapper">
+          <h2>Demonstration</h2>
+          <p>This is where you can test the functions.</p>
+          <div class="top">
+            <h3>Entering and Saving Data</h3>
+            <section>
+              <label for="input_area">Input 1<input type="text" id="input1" placeholder="input"></label><br/>
+              <label for="input_area">Input 2<input type="text" id="input2" placeholder="input"></label><br/>
+              <label for="input_area">Input 3<input type="text" id="input3" placeholder="input"></label><br/>
+              <label for="input_area">Input 4<input type="text" id="input4" placeholder="input"></label><br/>
+              <label for="input_area">Input 5<input type="text" id="input5" placeholder="input"></label><br/>
+            </section>
+            <section>
+              <button onclick="sys.saveData()">Save Data</button><br/><br />
+              <textarea id="export-area"></textarea>
+            </section>
+          </div>
+          <div class="bottom">
+            <h3>Loading Data</h3>
+            <section>
+              <textarea id="import-area"></textarea><br/><br />
+              <button onclick="sys.loadData()">Load Data</button>
+            </section>
+            <section>
+              <p>Data 1 Found: <span id="data1"></span></p>
+              <p>Data 2 Found: <span id="data2"></span></p>
+              <p>Data 3 Found: <span id="data3"></span></p>
+              <p>Data 4 Found: <span id="data4"></span></p>
+              <p>Data 5 Found: <span id="data5"></span></p>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <p>Find me on: <a href="http://www.github.com/xuansonon/" title="My GitHub Profile">GitHub</a> | <a href="http://www.xuansonon.com/" title="My Personal Website">My Website</a> | <a href="http://www.linkedin.com/" title="My LinkedIn Page">LinkedIn</a></p>
+    </footer>
+    <script src="import-export.js"></script>
+  </body>
+</html>
